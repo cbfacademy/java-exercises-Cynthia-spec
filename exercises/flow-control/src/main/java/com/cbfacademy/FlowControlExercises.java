@@ -90,16 +90,13 @@ public class FlowControlExercises {
          //  - determines the sum of all the odd numbers in the list
         Integer calculatedSumOfEvens = 0;
         Integer calculatedSumOfOdds = 0;
-        for (int i = 1; i <= numbers.size(); i++) {
-            Integer num = numbers.get(i); // Returns the element at the specified position in this list.
-            if (num % 2 == 0){
-               calculatedSumOfEvens += num;
-               }
-               else {
-                calculatedSumOfOdds += num;
-               }
-
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+                calculatedSumOfEvens += number;
+            } else {
+                calculatedSumOfOdds += number;
             }
+        }
         
     
         //  - returns a map with two entries:
@@ -119,18 +116,16 @@ public class FlowControlExercises {
         //  - it takes an array list of integers
         //  - it returns the list in reverse order
        
-        List<Integer> myNum = new ArrayList<Integer>();
-        myNum.add(5);
-        myNum.add(10);
-        myNum.add(15);
-        myNum.add(20);
-        myNum.add(25);
-        myNum.add(30);
-        myNum.add(35);
-        myNum.add(40);
+        // Create a new ArrayList to store the reversed elements
+        ArrayList<Integer> reverseList = new ArrayList<Integer>();
+        
+       // Traverse the input numbers list in reverse order and add elements to the reversedList
+        for (int i = numbers.size() - 1; i >= 0; i--) {
+           reverseList.add(numbers.get(i));
+       }
 
-        Collections.reverse(myNum);
-        return myNum;
+        // Return the reversed list
+        return reverseList;
 
         //throw new RuntimeException("Not implemented");
     }
