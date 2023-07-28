@@ -4,7 +4,9 @@ import java.util.*;
 
 public class CollectionsExercises {
 
-    public LinkedList<Integer> useLinkedList() {
+
+
+    public static LinkedList<Integer> useLinkedList() {
         // TODO: create an empty linked list
         //  - add 4 as the first element of the list
         //  - then add 5, 6, 8, 2, 9 to the the list
@@ -13,28 +15,27 @@ public class CollectionsExercises {
         //  - invoke the method element() on the list and print the result on the screen
         //  - return the list
 
-        LinkedList<Integer> newList = new LinkedList<Integer>();
+        LinkedList<Integer> newList = new LinkedList<>();
         newList.addFirst(4); // 0
         newList.add(5);
         newList.add(6);
         newList.add(8);
         newList.add(2);
         newList.add(9); 
-        newList.add(7);
-        newList.add(0);
-        newList.add(3, 4);
+        newList.addLast(2);
+        newList.add(2, 4);
 
         int element = newList.element();
 
         System.out.println(element);
-
+         
         return newList;
 
         
         //throw new RuntimeException("Not implemented");
     }
 
-    public Stack<Integer> useStack() {
+     public Stack<Integer> useStack() {
         
         // TODO: create an empty stack
         //  - add 5, 6, 8, 9 to the the stack
@@ -50,13 +51,31 @@ public class CollectionsExercises {
         stack.add(6);
         stack.add(8);
         stack.add(9);
-        System.out.println(stack.firstElement());
-        stack.pop(); 
+        System.out.print(stack.firstElement());
+        System.out.print(stack.lastElement());
+        System.out.print(stack.pop());
+
+
+        /*
+        Aternative- 
+        
+        if(!stack.isEmpty()){
+           int firstElement = stack.firstElement();
+           System.out.print(firstElement);
+
+           int lastElement = stack.lastElement();
+           System.out.print(lastElement);
+
+           int popElement = stack.pop();
+          System.out.print(popElement); 
+        }*/
+       
         stack.push(4); 
 
         return stack;
+    
 
-       // throw new RuntimeException("Not implemented");
+       //throw new RuntimeException("Not implemented");
 
         
     }
@@ -69,26 +88,27 @@ public class CollectionsExercises {
         //  - invoke the method poll() on the queue and print the result on the screen
         //  - invoke the element() method on the queue and print the result on the screen
         //  - return the queue
-        //throw new RuntimeException("Not implemented");
-
+        
         ArrayDeque<Integer> arrayDeque = new ArrayDeque<Integer>();
         arrayDeque.add(5);
         arrayDeque.add(6);
         arrayDeque.add(8);
         arrayDeque.add(9);
-        arrayDeque.peek();
+
+       /* arrayDeque.peek();
         arrayDeque.getLast();
         arrayDeque.poll();
-        arrayDeque.element();
+        arrayDeque.element();*/
 
-    
-        System.out.println(arrayDeque.peek());
-        System.out.println(arrayDeque.getLast());
-        System.out.println(arrayDeque.poll());
-        System.out.println(arrayDeque.element());
+        System.out.print(arrayDeque.peek());
+        System.out.print(arrayDeque.getLast());
+        System.out.print(arrayDeque.poll());
+        System.out.print(arrayDeque.element());
 
         return arrayDeque;
         
+        //throw new RuntimeException("Not implemented");
+
     
     }
 
@@ -101,7 +121,7 @@ public class CollectionsExercises {
         //  - add {5, JavaScript} entry to the map
         //  - add {6, Rust} entry to the map
         //  - determine the set of keys from the map and print it on the screen
-        //  - determine the set of keys from the map and print it on the screen
+        //  - determine the set of value from the map and print it on the screen
         //  - determine whether the map contains "English" as a language and print the result on the screen
         //  - return the map
 
@@ -115,8 +135,23 @@ public class CollectionsExercises {
         hashMap.put(5, "JavaScript");
         hashMap.put(6, "Rust");
 
-        Set<Integer> keys = hashMap.keySet();
-        System.out.println("Keys in the HashMap: " + keys);
+        Set<Integer> keys = hashMap.keySet(); //keySet() method to obtain a Set<Integer> of all the keys in the map and print it.
+        System.out.print(keys);
+
+        /*values() method to obtain a Collection<String> of all the values in the map, 
+        and then convert it to a HashSet<String> to remove duplicate values.
+        A LinkedHashSet preserves the order of elements based on their insertion order, 
+        just like a LinkedHashMap. This ensures that the order of the values in the 
+        output will match the order they were inserted into the map. */
+
+        Set<String> values = new LinkedHashSet<>(hashMap.values()); 
+        System.out.print(values);
+
+        String languageToCheck = "English";
+        boolean containsLanguage = values.contains(languageToCheck);
+        System.out.print(containsLanguage);
+
+
 
         return hashMap;
 
@@ -127,3 +162,4 @@ public class CollectionsExercises {
         return "Collections Exercises";
     }
 }
+
